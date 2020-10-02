@@ -25,13 +25,13 @@ function ListItems({ ...props }) {
                     {todoElements.checked ? <CheckBoxOutlinedIcon/> : <CheckBoxOutlineBlankOutlinedIcon /> }
                 </IconButton>
                 {todoElements.editMode ?
-                    <TextField defaultValue={todoElements.name} onChange={(event) => handleEditChange(event, type)}/>
+                    <TextField style={{width:"70%"}} defaultValue={todoElements.name} onChange={(event) => handleEditChange(event, type)}/>
                     :
-                    <span
+                    <div
                         onDoubleClick={(event) => handleEditMode(event, index, type)}
-                        style={todoElements.checked ? { textDecoration: "line-through" } : {}}>
+                        style={todoElements.checked ? { textDecoration: "line-through", width:"70%", overflowWrap:"break-word" } : {width:"70%", overflowWrap:"break-word"}}>
                         <ListItemText>{todoElements.name}</ListItemText>
-                    </span>
+                    </div>
                 }
                 <ListItemSecondaryAction>
                     {todoElements.editMode && (
